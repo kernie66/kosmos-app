@@ -1,0 +1,7 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "outDir": "dist"
+  },
+  "extends": "@tsconfig/vite-react/tsconfig.json"
+}
