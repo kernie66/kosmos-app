@@ -2,6 +2,7 @@ import { useState } from "react";
 import viteLogo from "/vite.svg";
 import reactLogo from "./assets/react.svg";
 import "./App.css";
+import { AppShell, MantineProvider } from "@mantine/core";
 // Import styles of packages that you've installed.
 // All packages except `@mantine/hooks` require styles imports
 import "@mantine/core/styles.css";
@@ -23,15 +24,29 @@ import "filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css";
 // Register the plugins
 registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview);
 
-import { AppShell, MantineProvider } from "@mantine/core";
-
 function DropZone() {
 	const [files, setFiles] = useState([]);
+
+	console.log("files", files[0]?.file);
+	console.log("Number of files:", files.length);
 	return (
 		<div className="App">
 			<FilePond
 				files={files}
 				onupdatefiles={setFiles}
+				onprocessfile={(error, file) => {
+					console.log("id", file.id);
+					console.log("server id", file.serverId);
+					console.log("origin", file.origin);
+					console.log("file", file.file);
+					console.log("fileExtension", file.fileExtension);
+					console.log("fileSize", file.fileSize);
+					console.log("filename", file.filename);
+					console.log(
+						"filenameWithoutExtension",
+						file.filenameWithoutExtension,
+					);
+				}}
 				allowMultiple={true}
 				maxFiles={3}
 				server="/upload"
