@@ -1,4 +1,3 @@
-import "./App.css";
 import { AppShell, Container, Text } from "@mantine/core";
 import DropZone from "./components/DropZone";
 
@@ -13,6 +12,7 @@ import FilePondPluginImagePreview from "filepond-plugin-image-preview";
 import "filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css";
 import Header from "./components/Header";
 import AuthModal from "./components/AuthModal";
+import SelectFiles from "./components/SelectFile";
 
 // Register the plugins
 registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview);
@@ -36,11 +36,12 @@ export default function App() {
 			<AppShell.Main>
 				<Container fluid>
 					<AuthModal />
-					<Text>Current URL: {currentURL}</Text>
-					<Text>Current Path: {currentPath}</Text>
-					<Text>Current Pathname: {currentPathname}</Text>
-					<Text>Current Hostname: {window.location.hostname}</Text>
+					<Text c={"lime"}>Current URL: {currentURL}</Text>
+					<Text c={"lime"}>Current Path: {currentPath}</Text>
+					<Text c={"lime"}>Current Pathname: {currentPathname}</Text>
+					<Text c={"lime"}>Current Hostname: {window.location.hostname}</Text>
 					<DropZone />
+					<SelectFiles />
 				</Container>
 			</AppShell.Main>
 		</AppShell>

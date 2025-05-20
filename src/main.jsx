@@ -4,7 +4,6 @@ import "@mantine/core/styles.css";
 import "@mantine/dropzone/styles.css";
 // Import FilePond styles
 import "filepond/dist/filepond.min.css";
-import "./index.css";
 import App from "./App.jsx";
 import { createTheme, MantineProvider } from "@mantine/core";
 
