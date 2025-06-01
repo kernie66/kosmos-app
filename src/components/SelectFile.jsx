@@ -4,10 +4,9 @@ import { useState } from "react";
 import { Text, Group, Stack } from "@mantine/core";
 import { Dropzone, IMAGE_MIME_TYPE } from "@mantine/dropzone";
 
-export default function SelectFile({ onSelectFile, test }) {
-	const [subText, setSubText] = useState("Välj en bildfil på max 5 MB");
+export default function SelectFile({ onSelectFile }) {
+	const [subText, setSubText] = useState("Välj en bildfil att ladda upp");
 
-	console.log(typeof onSelectFile, test);
 	const fileError = (errorObject) => {
 		const error = errorObject.errors[0];
 		console.log("error", error);
@@ -26,7 +25,7 @@ export default function SelectFile({ onSelectFile, test }) {
 
 	const handleDrop = (acceptedFiles) => {
 		console.log("acceptedFiles", acceptedFiles);
-		setSubText("Bilden är redo för att laddas upp");
+		setSubText("Välj en ny bildfil för att byta ut den nuvarande");
 		onSelectFile(acceptedFiles);
 	};
 
@@ -36,7 +35,7 @@ export default function SelectFile({ onSelectFile, test }) {
 	};
 
 	const restoreSubText = () => {
-		setSubText("Välj en bildfil på max 5 MB");
+		setSubText("Välj en bildfil att ladda upp");
 	};
 
 	return (
