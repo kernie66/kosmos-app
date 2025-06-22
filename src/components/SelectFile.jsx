@@ -26,7 +26,7 @@ export default function SelectFile({ onSelectFile }) {
 	const handleDrop = (acceptedFiles) => {
 		console.log("acceptedFiles", acceptedFiles);
 		setSubText("Välj en ny bildfil för att byta ut den nuvarande");
-		onSelectFile(acceptedFiles);
+		onSelectFile(acceptedFiles[0]);
 	};
 
 	const handleReject = (rejectedFiles) => {
